@@ -7,7 +7,7 @@ function getJSON(url, callback, failback) {
 
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
-            if (typeof callback === 'functin')
+            if (typeof callback === 'function')
                 callback(JSON.parse(request.responseText));
         }
         else {
