@@ -24,7 +24,7 @@ namespace RocketSimulator.Web
                 defaults: new { id = RouteParameter.Optional } // Makes {id} optional in the URL
             );
 
-
+           
            
         }
     }

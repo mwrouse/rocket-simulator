@@ -3,8 +3,7 @@ using Autofac.Integration.WebApi;
 using Autofac;
 
 using RocketSimulator.Models;
-
-
+using System.Net.Http.Formatting;
 
 namespace RocketSimulator.Web
 {
@@ -29,7 +28,8 @@ namespace RocketSimulator.Web
             // End AutoFac Config
 
 
-
+            GlobalConfiguration.Configuration.Formatters.Clear();
+            GlobalConfiguration.Configuration.Formatters.Add(new JsonMediaTypeFormatter());
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
