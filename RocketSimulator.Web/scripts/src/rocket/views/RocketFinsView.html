@@ -1,0 +1,43 @@
+<div class="category-title" data-bind="collapse: 'category-fins'">Fins</div>
+
+<div class="category-content" data-bind="with: $root.fins">
+  <!-- Count -->
+  <div class="parameter">
+    <div class="parameter-title">Count</div>
+    <div class="parameter-desc">Number of fins</div>
+
+    <select class="param-control" data-bind="value: count, foreach: availableCounts, triggerRedraw: count">
+      <option data-bind="value: num, text: label, css: {selected: num == $root.fins.count}"></option>
+    </select>
+  </div>
+
+  <!-- Offset -->
+  <div class="parameter">
+    <div class="parameter-title">Offset</div>
+    <div class="parameter-desc">X-Axis offset for fins</div>
+
+    <input type="range" class="param-control" value="2" min="0.5" max="5" step="0.25" data-bind="sliderValue: offset">
+    <label class="param-value" data-bind="text: offset"></label>"
+  </div>
+
+  <!-- Style -->
+  <div class="parameter">
+    <div class="parameter-title">Style</div>
+    <div class="parameter-desc">Fin style</div>
+
+    <select class="param-control" data-bind="value: style, triggerRedraw: style, foreach: availableStyles">
+      <option data-bind="value: num, text: label, css: { selected: num == $root.fins.style }"></option>
+    </select>
+  </div>
+
+  <!-- Material -->
+  <div class="parameter">
+    <div class="parameter-title">Material</div>
+    <div class="parameter-desc">Fin material</div>
+
+    <select class="param-control" data-bind="value: material, foreach: availableMaterials">
+      <option data-bind="value: num, text: label, css: { selected: num == $root.fins.material }"></option>
+    </select>
+  </div>
+
+</div> <!-- End Category Content -->

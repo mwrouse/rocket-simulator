@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rocket Simulator</title>
+
+    <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+    <canvas id="displayCanvas" width="1300" height="800" data-bind="render: model()">
+        No canvas support... :(
+    </canvas>
+
+    <div id="parameter-panel">
+        <div id="header" class="parameter-category">
+            <h1>Rocket Simulator <small>By Michael Rouse</small></h1>
+            Design your rocket, choose an engine, and simulate how high and how fast your rocket will go.<br /><br />
+            Click on any category below to expand the options you are able to customize. When you're ready, click the "Simulate"
+            button below. Or, click the "Reset" button to restart.<br /><br />
+            <div id="results" class="flight-results"></div>
+            <button id="simulate-btn" data-bind="event: { click: launch }" type="button">Simulate</button>
+            <button id="reset-btn" data-bind="event: { click: loadDefaults }" type="button">Reset</button>
+        </div>
+
+        <!-- Parameter categories -->
+        <div id="category-body" class="parameter-category expanded" data-bind="component: 'body-view'"></div>
+        <div id="category-nosecone" class="parameter-category" data-bind="component: 'nosecone-view'"></div>
+        <div id="category-fins" class="parameter-category" data-bind="component: 'fins-view'"></div>
+        <div id="category-deployment" class="parameter-category" data-bind="component: 'deployment-view'"></div>
+        <div id="category-motorMount" class="parameter-category" data-bind="component: 'motorMount-view'"></div>
+        <div id="category-motor" class="parameter-category" data-bind="component: 'motor-view'"></div>
+        
+        <!-- Save and Load Category -->
+        <div id="category-saveload" class="parameter-category">
+            <div class="category-title" data-bind="collapse: 'category-saveload'">Save/Load</div>
+
+            <div class="category-content">
+                <div class="parameter">
+                    You are able to save your rocket configuration, and load it for later use.
+                    <br />
+                    <button id="save-btn" type="button" data-bind="event: { click: saveModel }">Save</button>
+                    <div class="fileUpload btn">
+                        <span>Load</span>
+                        <input type="file" class="upload" id="fileUpload" data-bind="event: {change: loadModel}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- End Parameter Panel -->
+
+    <script src="~/scripts/app.js"></script>
+    <script data-main="scripts/src/require-config.js" src="scripts/lib/require.js"></script>
+
+
+
+</body>
+</html>

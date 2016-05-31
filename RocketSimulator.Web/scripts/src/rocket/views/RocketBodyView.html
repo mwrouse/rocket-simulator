@@ -1,0 +1,35 @@
+
+<div class="category-title" data-bind="collapse: 'category-body'">Body</div>
+
+<div class="category-content" data-bind="with: $root.body">
+
+  <!-- Diameter -->
+  <div class="parameter">
+    <div class="parameter-title">Diameter</div>
+    <div class="parameter-desc">Size of the main rocket body</div>
+
+    <input type="range" class="param-control" step="0.25" min="2.5" max="10" data-bind="sliderValue: diameter">
+    <span class="param-value" data-for="body-diameter" data-bind="text: diameter"></span>"
+  </div>
+
+  <!-- Length -->
+  <div class="parameter">
+    <div class="parameter-title">Length</div>
+    <div class="parameter-desc">Length of main rocket body</div>
+
+    <input type="range" class="param-control" step="0.25" min="30" data-bind="sliderValue: length">
+    <label class="param-value" data-bind="text: length"></label>"
+  </div>
+
+  <!-- Material -->
+  <div class="parameter">
+    <div class="parameter-title">Material</div>
+    <div class="parameter-desc">Rocket body material</div>
+
+    <select class="param-control" data-bind="value: material, foreach: $root.materials">
+      <option data-bind="value: num, text: label, css: {selected: num == $root.body.material}"></option>
+    </select>
+
+  </div>
+
+</div> <!-- End Category Content -->

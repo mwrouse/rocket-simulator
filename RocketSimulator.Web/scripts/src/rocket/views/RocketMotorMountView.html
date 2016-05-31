@@ -1,0 +1,24 @@
+<div class="category-title" data-bind="collapse: 'category-motorMount'">Motor Mount</div>
+
+<div class="category-content" data-bind="with: $root.motorMount">
+  <!-- Diameter -->
+  <div class="parameter">
+    <div class="parameter-title">Diameter</div>
+    <div class="parameter-desc">Size of motor mount</div>
+
+    <select class="param-control" data-bind="value: diameter, triggerRedraw: diameter, foreach: availableMotorSizes">
+      <option data-bind="value: num, text: label, css: { selected: num == $root.motorMount.diameter }"></option>
+    </select>
+
+  </div>
+
+  <!-- Length -->
+  <div class="parameter">
+    <div class="parameter-title">Length</div>
+    <div class="parameter-desc">Motor mount length</div>
+
+    <input type="range" class="param-control" value="30" min="4" step="0.25" data-bind="sliderValue: length, sliderMax: $root.body.length">
+    <label class="param-value" data-bind="text: length"></label>"
+  </div>
+
+</div> <!-- End Category Content -->

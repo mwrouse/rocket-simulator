@@ -1,0 +1,23 @@
+﻿<div class="category-title" data-bind="collapse: 'category-motor'">Motor</div>
+
+<div class="category-content" data-bind="with: $root.motor">
+    <!-- Thrust -->
+    <div class="parameter">
+        <div class="parameter-title">Max Thrust</div>
+        <div class="parameter-desc">Select engine thrust</div>
+
+        <input type="range" class="param-control" step="0.25" min="400" max="9000" data-bind="sliderValue: thrust">
+        <span class="param-value"  data-bind="text: thrust"></span> Newtons
+    </div>
+
+    <!-- Impulse -->
+    <div class="parameter">
+        <div class="parameter-title">Total Impulse</div>
+        <div class="parameter-desc">Size of the main rocket body</div>
+
+        <input type="range" class="param-control" step="0.25" min="40" max="25000" data-bind="sliderValue: impulse">
+        <span class="param-value"data-bind="text: impulse"></span> Newton-Seconds
+    </div>
+</div>
+
+
