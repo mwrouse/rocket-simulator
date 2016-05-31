@@ -1,0 +1,89 @@
+<div class="category-title" data-bind="collapse: 'category-deployment'">Deployment</div>
+
+<div class="category-content" data-bind="with: $root.deployment">
+  <!-- Method -->
+  <div class="parameter">
+    <div class="parameter-title">Method</div>
+    <div class="parameter-desc">Ways to recover</div>
+
+    <input type="radio" name="deployment-method" class="param-control" value="0" data-bind="checked: type, checkedValue: 0"><label>Single</label>
+    <input type="radio" name="deployment-method" class="param-control" value="1" data-bind="checked: type, checkedValue: 1"><label>Dual</label>
+  </div>
+
+  <!-- Main Type -->
+  <div class="parameter">
+    <div class="parameter-title">Main Type</div>
+    <div class="parameter-desc">Main recovery type</div>
+
+    <input type="radio" name="deployment-main-type" class="param-control" value="0" data-bind="checked: mainMethod, checkedValue: 0"><label>Parachute</label>
+    <input type="radio" name="deployment-main-type" class="param-control" value="1" data-bind="checked: mainMethod, checkedValue: 1"><label>Streamer</label>
+  </div>
+
+  <!-- Main Radius/Length -->
+  <div class="parameter">
+    <!-- ko if: mainMethod() == 0 -->
+      <div class="parameter-title">Radius</div>
+      <div class="parameter-desc">Parachute radius for main recovery</div>
+    <!-- /ko -->
+
+    <!-- ko if: mainMethod() == 1 -->
+      <div class="parameter-title">Length</div>
+      <div class="parameter-desc">Streamer length for main recovery</div>
+    <!-- /ko -->
+
+    <input type="range" class="param-control" min="5" step="0.5" data-bind="sliderValue: mainSize">
+    <label data-bind="text: mainSize"></label>"
+  </div>
+
+  <!-- Streamer Width -->
+  <!-- ko if: mainMethod() !== 0 -->
+    <div class="parameter">
+      <div class="parameter-title">Width</div>
+      <div class="parameter-desc">Streamer Width for main recovery</div>
+
+      <input type="range" class="param-control" min="1" step="0.5" data-bind="sliderValue: mainWidth">
+      <label data-bind="text: mainWidth"></label>"
+    </div>
+  <!-- /ko -->
+
+
+  <!-- Dual Deployment -->
+  <!-- ko if: type() !== 0 -->
+    <!-- Drogue Type -->
+    <div class="parameter">
+      <div class="parameter-title">Drogue Type</div>
+      <div class="parameter-desc">Recovery type for drogue</div>
+
+      <input type="radio" name="deployment-drogue-type" class="param-control" value="0" data-bind="checked: drogueMethod, checkedValue: 0"><label>Parachute</label>
+      <input type="radio" name="deployment-drogue-type" class="param-control" value="1" data-bind="checked: drogueMethod, checkedValue: 1"><label>Streamer</label>
+    </div>
+
+    <!-- Drogue Radius/Length -->
+    <div class="parameter">
+      <!-- ko if: drogueMethod() == 0 -->
+        <div class="parameter-title">Radius</div>
+        <div class="parameter-desc">Parachute radius for drogue recovery</div>
+      <!-- /ko -->
+
+      <!-- ko if: drogueMethod() == 1 -->
+        <div class="parameter-title">Length</div>
+        <div class="parameter-desc">Streamer length for drogue recovery</div>
+      <!-- /ko -->
+
+      <input type="range" class="param-control" min="5" step="0.5" data-bind="sliderValue: drogueSize">
+      <label data-bind="text: drogueSize"></label>"
+    </div>
+
+    <!-- Drogue Streamer Width -->
+    <!-- ko if: drogueMethod() == 1 -->
+      <div class="parameter">
+        <div class="parameter-title">Width</div>
+        <div class="parameter-desc">Streamer Width for drogue recovery</div>
+
+        <input type="range" class="param-control" min="1" step="0.5" data-bind="sliderValue: drogueWidth">
+        <label data-bind="text: drogueWidth"></label>"
+      </div>
+    <!-- /ko -->
+  <!-- /ko -->
+
+</div> <!-- End Category Content -->

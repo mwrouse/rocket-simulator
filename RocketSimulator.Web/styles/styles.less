@@ -1,0 +1,216 @@
+﻿// "out": "styles.css"
+
+
+// Colors
+@grey: #E1E1E1;
+@darkGrey: #D1D1D1;
+@darkestGrey: #C2C2C2;
+
+ 
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+html, body
+{
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+
+  font-size: 16px;
+  font-family: sans-serif;
+
+  color: #1F1E1E;
+}
+
+
+#displayCanvas
+{
+  float: left;
+  width: 75%;
+  height: 100%;
+  display: inline-block;
+  background-color: #0100C9;
+}
+
+
+#parameter-panel
+{
+  display: inline-block;
+  float: right;
+
+  width: 25%;
+  height: 100%;
+  max-height: 100%;
+  overflow-y: scroll;
+
+  border-left: 2px solid #000;
+}
+
+
+/** Menu Category Option **/
+.parameter-category { width: 100%; }
+
+.category-title
+{
+  width: 100%;
+  height: auto;
+
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  background-color: @grey;
+  border-bottom: 1px solid @darkestGrey;
+  border-top: 1px solid @darkestGrey;
+}
+
+.category-title:before
+{
+  content: "» ";
+  display: inline-block;
+}
+
+.category-title:hover, .expanded > .category-title
+{
+  background-color: @darkGrey; /* Darken Background on hover, or when expanded */
+}
+
+.expanded > .category-title:before
+{
+  content: "» ";
+  transform: rotate(90deg);
+}
+
+/* Options for a parameter */
+.parameter
+{
+  padding: 10px;
+}
+
+.parameter-title
+{
+  font-size: 16px;
+  font-weight: bold;
+}
+.parameter-desc { font-size: 14px; margin-bottom: 6px; }
+
+input[type=range].param-control, select.param-control
+{ font-size: 16px; vertical-align: middle; }
+
+
+.category-content
+{
+  overflow: hidden;
+  max-height: 0;    // Collapsed by default
+
+  // Animation for expanding/collapsing
+  transition: max-height 0.2s linear;
+  -moz-transition: max-height 0.2s linear;
+  -webkit-transition: max-height 0.2s linear;
+  -o-transition: max-height 0.2s linear;
+}
+
+.expanded > .category-content
+{
+  max-height: 1000px;  // Expanded
+}
+
+#header
+{
+  padding: 10px;
+}
+small
+{
+  display: block;
+  font-size: 13px;
+}
+button, .btn
+{
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+  padding: 5px;
+  margin-top: 20px;
+  margin-right: 20px;
+  background-color: @grey;
+  border: 1px solid @darkestGrey;
+
+  cursor: pointer;
+}
+button:hover, .btn:hover
+{
+  background-color: @darkGrey;
+}
+
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+  bottom: -10px;
+}
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+
+.flight-results {
+    max-height: 0px;
+    overflow: hidden;
+
+    transition: max-height 0.2s linear;
+  -moz-transition: max-height 0.2s linear;
+  -webkit-transition: max-height 0.2s linear;
+  -o-transition: max-height 0.2s linear;
+
+  
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.show {
+    border: 1px solid #f00;
+    max-height: 500px !important;
+}
+
+
+
+@media screen and (max-width: 1000px)
+{
+  #displayCanvas
+  {
+    float: none;
+    width: 100%;
+    height: 75%;
+  }
+  #parameter-panel
+  {
+    float: none;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    overflow: auto;
+  }
+}
+
+@media screen and (max-width: 500px)
+{
+  #parameter-panel
+  {
+    text-align: center;
+  }
+}

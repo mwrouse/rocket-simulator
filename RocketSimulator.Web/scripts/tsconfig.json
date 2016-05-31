@@ -1,0 +1,16 @@
+﻿{
+  "compilerOptions": {
+    "rootDir": "",
+ 
+    "target": "es5",
+    "module": "amd",
+    "noImplicitAny": true
+  },
+
+  "compileOnSave": true,
+  "buildOnSave": true,
+  "atom": {
+    "rewriteTsconfig": false
+  }
+
+}
